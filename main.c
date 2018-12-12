@@ -17,11 +17,11 @@
 
 static void		print_map(t_map *map)
 {
-	int idx;
+	int i;
 
-	idx = -1;
-	while (++idx < map->size)
-		ft_putendl(map->map[idx]);
+	i = -1;
+	while (++i < map->size)
+		ft_putendl(map->map[i]);
 }
 
 int				main(int argc, char **argv)
@@ -36,7 +36,7 @@ int				main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	fd = open(argv[1], O_RDONLY);
-	if (!(list = read_map(fd, 0, 'A', NULL)))
+	if (!(list = read_map(fd, 'A', NULL)))
 	{
 		ft_error("error");
 	}

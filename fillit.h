@@ -36,7 +36,7 @@ typedef struct	s_etris
 	char		letter;
 }				t_etris;
 
-t_list			*read_map(int fd, int tmp, char letter, t_list *list);
+t_list			*read_map(int fd, char letter, t_list *list);
 t_map			*solve(t_list *list);
 t_pos			*pos_alloc(int x, int y);
 t_etris			*tetris_new(char **pos, int width, int height, char letter);

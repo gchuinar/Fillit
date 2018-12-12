@@ -36,7 +36,7 @@ static t_etris	*get_tetri(char *str, char letter)
 	t_pos	*max;
 	char	**map;
 	int		i;
-	t_etris	*tetris;
+	t_etris	*tetri;
 
 	min = pos_alloc(3, 3);
 	max = pos_alloc(0, 0);
@@ -49,10 +49,10 @@ static t_etris	*get_tetri(char *str, char letter)
 		ft_strncpy(map[i], str + (min->x) + (i + min->y) * 5, \
 		max->x - min->x + 1);
 	}
-	tetris = tetris_new(map, max->x - min->x + 1, max->y - min->y + 1, letter);
+	tetri = tetris_new(map, max->x - min->x + 1, max->y - min->y + 1, letter);
 	ft_memdel((void **)&min);
 	ft_memdel((void **)&max);
-	return (tetris);
+	return (tetri);
 }
 
 static int		hash_checker(char *str, int i)
@@ -98,11 +98,12 @@ static int		input_checker(char *str, int ret)
 	return (1);
 }
 
-t_list			*read_map(int fd, int tmp, char letter, t_list *list)
+t_list			*read_map(int fd, char letter, t_list *list)
 {
 	char	*buf;
 	t_etris	*tetri;
 	int		ret;
+	int		tmp;
 
 	buf = ft_strnew(BUF_SIZE);
 	while ((ret = read(fd, buf, BUF_SIZE)))

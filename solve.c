@@ -87,8 +87,7 @@ static int		solve_map(t_map *map, t_list *list)
 			{
 				if (solve_map(map, list->next))
 					return (1);
-				else
-					set_value(tetri, map, pos_alloc(pos.x, pos.y), '.');
+				set_value(tetri, map, pos_alloc(pos.x, pos.y), '.');
 			}
 		}
 	}
@@ -112,7 +111,7 @@ t_map			*solve(t_list *list)
 		free_map(map);
 		map = new_map(size);
 	}
-	if (size >= 16)
+	if (size > 16)
 		ft_error("error");
 	return (map);
 }
