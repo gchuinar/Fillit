@@ -94,7 +94,7 @@ static int		input_checker(char *str, int ret)
 	}
 	if ((connect != 8 && connect != 6) || hash_cnt != 4 || dot_cnt != 12 \
 		|| i != 20 || nl_cnt != 4 || (ret == 21 && str[BUF_SIZE - 1] != '\n'))
-		return (NULL);
+		return (0);
 	return (1);
 }
 
