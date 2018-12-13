@@ -94,7 +94,7 @@ static int		input_checker(char *str, int ret)
 	}
 	if ((connect != 8 && connect != 6) || hash_cnt != 4 || dot_cnt != 12 \
 		|| i != 20 || nl_cnt != 4 || (ret == 21 && str[BUF_SIZE - 1] != '\n'))
-		ft_error("error");
+		return (NULL);
 	return (1);
 }
 
@@ -122,6 +122,6 @@ t_list			*read_map(int fd, char letter, t_list *list)
 	if (tmp != 20)
 		return (free_list(list));
 	if (!ft_isalpha(letter - 1))
-		ft_error("error");
+		return (free_list(list));
 	return (list);
 }

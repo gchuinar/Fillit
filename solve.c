@@ -111,7 +111,11 @@ t_map			*solve(t_list *list)
 		free_map(map);
 		map = new_map(size);
 	}
-	if (size > 16)
+	if (size > 16) 
+	{
+		free_map(map);
+		free_list(list);
 		ft_error("error");
+	}
 	return (map);
 }
